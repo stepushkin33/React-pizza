@@ -12,6 +12,7 @@ import Cart from './pages/Cart'
 
 function App() {
 
+
   const[searchValue, setSearchValue] = React.useState('');
 
   return (
