@@ -2,17 +2,19 @@ import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { setSort } from '../../redux/slices/filterSlice';
 
+export const popupList = [
+  {name: 'популярности(по возрастанию)' , sortType: "raiting"},
+  {name: 'популярности(по убыванию)' , sortType: "-raiting"},
+  {name: 'цене(по возрастанию)', sortType: 'price'},
+  {name: 'цене(по убыванию)', sortType: '-price'},
+  {name: 'алфавиту', sortType: 'title'}];
+
 function Sort() {
   const dispatch = useDispatch()
   const sort = useSelector(state => state.filterReducer.sort)
 
   const [isVisible, setIsVisible] = React.useState(false);
-  const popupList = [
-    {name: 'популярности(по возрастанию)' , sortType: "raiting"},
-    {name: 'популярности(по убыванию)' , sortType: "raiting"},
-    {name: 'цене(по возрастанию)', sortType: 'price'},
-    {name: 'цене(по убыванию)', sortType: 'price'},
-    {name: 'алфавиту', sortType: 'title'}];
+
 
   const onClickSelectedSort = (i) => {
     dispatch(setSort(i))

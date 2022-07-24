@@ -3,11 +3,13 @@ import { Link } from 'react-router-dom';
 import logoSvg from '../../assets/img/pizza-logo.svg';
 import Search from '../Search';
 
+import { resetFilters } from '../../redux/slices/filterSlice';
+
 function Header() {
     return (
       <div className="header">
           <div className="container">
-            <Link to='/'>
+            <Link to='' onClick={resetFilters()}>
             <div className="header__logo">
               <img width="38" src={logoSvg} alt="Pizza logo" />
               <div>
