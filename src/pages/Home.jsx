@@ -29,6 +29,7 @@ const Home = () => {
         dispatch(setCategory(id))
     }
 
+    //Получение пицц с сервера
     const getPizzas = () => {
         setOnLoading(true);
         const sortBy = sort.sortType.replace('-','');
@@ -42,6 +43,7 @@ const Home = () => {
         })
     }
 
+    //Был первый рендер, проверка параметров в URL и сохранение их в Redux
     React.useEffect(() => {
         if(window.location.search) {
             const params = qs.parse(window.location.search.substring(1));
@@ -56,6 +58,7 @@ const Home = () => {
         }
     }, [])
 
+    //Был первый реднер => запрашиваем пиццы
     React.useEffect(() => {
         window.scrollTo(0,0)
         if (!isSearch.current) {
@@ -64,6 +67,7 @@ const Home = () => {
         isSearch.current = false;
     },[categoryId , sort, searchValue, currentPage])
 
+    //Если был первый рендер, и параметры были изменены
   React.useEffect(() => {
    if (isMounted.current) {
     const queryString = qs.stringify({

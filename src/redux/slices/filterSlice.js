@@ -31,8 +31,8 @@ export const filterSlice = createSlice({
       state.categoryId = Number(action.payload.categoryId);
     },
 
-    resetFilters(state, action) {
-      state.currentPage = initialState.currentPage;
+    resetFilters(state) {
+      state.currentPage = 0;
       state.sort = initialState.sort;
       state.categoryId = initialState.categoryId;
     },
