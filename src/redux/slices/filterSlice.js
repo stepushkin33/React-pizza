@@ -7,6 +7,7 @@ const initialState = {
     sortType: 'raiting',
   },
   currentPage: 1,
+  searchValue: '',
 };
 
 export const filterSlice = createSlice({
@@ -36,10 +37,14 @@ export const filterSlice = createSlice({
       state.sort = initialState.sort;
       state.categoryId = initialState.categoryId;
     },
+
+    setSearchValue(state, action) {
+      state.searchValue = action.payload;
+    },
   },
 });
 
-export const { setCategory, setSort, setCurrentPage, setFilters, resetFilters } =
+export const { setSearchValue, setCategory, setSort, setCurrentPage, setFilters, resetFilters } =
   filterSlice.actions;
 
 export default filterSlice.reducer;
